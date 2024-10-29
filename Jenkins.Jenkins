@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo "$TESTING_DIRECTORY started and completed"
+                echo "TESTING_DIRECTORY started and completed"
             }
         }
         stage('Code Analysis') {
@@ -32,12 +32,12 @@ pipeline {
         }
         stage('Integration Tests on Staging') {
             steps {
-                echo "$PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
+                echo "PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo "$PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
+                echo "PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
             }
         }
     }
