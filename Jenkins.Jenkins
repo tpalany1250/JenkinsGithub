@@ -4,9 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "fetch the source code from the directory dsssssssssssssssssssss path specified by" +
-                " the environment variable. $DIRECTORY_PATH"
-                echo "compile the code and generate any necessary artifacts"
+                echo "Building the code"
+                // Use the Maven automation tool to compile and package the code
             }
         }
         stage('Unit and Integration Tests') {
