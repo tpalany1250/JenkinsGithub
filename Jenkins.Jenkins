@@ -1,10 +1,6 @@
 pipeline {
     agent any
-    environment {
-        DIRECTORY_PATH = "C:\\Users\\thrry\\AppData\\Local\\Jenkins\\.jenkins\\workspace\\my_first_pipeline"
-        TESTING_DIRECTORY = "unit tests and integration tests"
-        PRODUCTION_ENVIRONMENT = "Tom"
-    }
+    
     stages {
         stage('Build') {
             steps {
