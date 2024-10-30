@@ -17,6 +17,13 @@ pipeline {
                 echo "Integration test: Ensuring different components of the application work together as expected using Selenium build automation tool"
                 // Used for web browser-based integration testing
             }
+            post {
+                success {
+                    mail to: "thrrymundpalany@gmail.com",
+                    subject: "Unit and Integration Tests Status Email"
+                    body: "Unit test was successful!"
+                }
+            }
             
         }
         stage('Code Analysis') {
