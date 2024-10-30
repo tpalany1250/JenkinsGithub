@@ -25,7 +25,7 @@ pipeline {
                     attachLog: true, compressLog: true
                 }
                 failure {
-                    mail to: "thrrymundpalany@gmail.com",
+                    emailext to: "thrrymundpalany@gmail.com",
                     subject: "Unit and Integration Tests Status Email FAILURE",
                     body: "Unit test was unsuccessful!",
                     attachLog: true, compressLog: true
