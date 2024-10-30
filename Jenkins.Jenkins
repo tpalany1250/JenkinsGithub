@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building the code"
-                // Use the Maven automation tool to compile and package the code
+                echo "Build process started ......."
+                echo "Compiling and packaging the code using Maven build automation tool"
             }
         }
         stage('Unit and Integration Tests') {
