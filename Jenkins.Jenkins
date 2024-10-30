@@ -71,5 +71,18 @@ pipeline {
                 echo "Deployment to production server successful"
             }
         }
+        stage('Test Email Notification') {
+            steps {
+                script {
+                    emailext(
+                        to: "thrrymundpalany@gmail.com",
+                        subject: "Test Email from Jenkins Pipeline",
+                        body: "If you receive this email, the configuration is correct.",
+                        attachLog: true,
+                        compressLog: true
+                    )
+                }
+            }
+        }
     }
 }
