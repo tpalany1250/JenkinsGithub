@@ -21,7 +21,8 @@ pipeline {
                 success{
                     mail to: "thrrymundpalany@gmail.com",
                     subject: "Unit and Integration Tests Status Email",
-                    body: "Unit test was successful!"
+                    body: "Unit test was successful!",
+                    attachLog: true
                 }
             }
             
