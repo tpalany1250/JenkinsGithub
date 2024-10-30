@@ -31,7 +31,6 @@ pipeline {
                     attachLog: true, compressLog: true
                 }
             }
-            
         }
         stage('Code Analysis') {
             steps {
@@ -46,6 +45,20 @@ pipeline {
                 echo "Performing security scan using OSWASP dependency check......."
                 // The OSWASP dependency check detects vulnerabilities
                 echo "OSWASP: no vulnerabilities found"
+            }
+            post {
+                success {
+                    emailext to: "thrrymundpalany@gmail.com",
+                    subject: "Security Scan SUCCESS",
+                    body: "Security Scan was successful!",
+                    attachLog: true, compressLog: true
+                }
+                failure {
+                    emailext to: "thrrymundpalany@gmail.com",
+                    subject: "Security Scan FAILURE",
+                    body: "Security Scan was unsuccessful!",
+                    attachLog: true, compressLog: true
+                }
             }
         }
         stage('Deploy to Staging') {
@@ -62,6 +75,20 @@ pipeline {
                 sleep 10
                 echo "Deployment of Integration Tests to staging server successful"
             }
+            post {
+                success {
+                    emailext to: "thrrymundpalany@gmail.com",
+                    subject: "Integration Tests on Staging SUCCESS",
+                    body: "Integration Tests on Staging was successful!",
+                    attachLog: true, compressLog: true
+                }
+                failure {
+                    emailext to: "thrrymundpalany@gmail.com",
+                    subject: "Integration Tests on Staging FAILURE",
+                    body: "Integration Tests on Staging was unsuccessful!",
+                    attachLog: true, compressLog: true
+                }
+            }
         }
         stage('Deploy to Production') {
             steps {
@@ -69,19 +96,6 @@ pipeline {
                 echo "Server selected: AWS EC2 instance"
                 sleep 10
                 echo "Deployment to production server successful"
-            }
-        }
-        stage('Test Email Notification') {
-            steps {
-                script {
-                    emailext(
-                        to: "thrrymundpalany@gmail.com",
-                        subject: "Test Email from Jenkins Pipeline",
-                        body: "If you receive this email, the configuration is correct.",
-                        attachLog: true,
-                        compressLog: true
-                    )
-                }
             }
         }
     }
