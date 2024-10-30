@@ -14,8 +14,7 @@ pipeline {
                 echo "Unit test: Ensuring the code functions as expected through JUnit build automation tool"
                 // Used for unit testing in Java Applications
 
-                echo "Integration test: Ensuring different components of the application work together as expected
-                    using Selenium build automation tool"
+                echo "Integration test: Ensuring different components of the application work together as expected using Selenium build automation tool"
                 // Used for web browser-based integration testing
             }
         }
