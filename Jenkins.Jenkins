@@ -18,7 +18,7 @@ pipeline {
                 // Used for web browser-based integration testing
             }
             post {
-                success {
+                success{
                     mail to: "thrrymundpalany@gmail.com",
                     subject: "Unit and Integration Tests Status Email"
                     body: "Unit test was successful!"
