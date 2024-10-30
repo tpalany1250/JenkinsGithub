@@ -4,18 +4,28 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Build process started ......."
+                echo "Build process started......."
                 echo "Compiling and packaging the code using Maven build automation tool"
             }
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo "TESTING_DIRECTORY started and completed"
+                echo "Unit and integration tests started......."
+                echo "Unit test: Ensuring the code functions as expected through JUnit build automation tool"
+                // Used for unit testing in Java Applications
+
+                echo "Integration test: Ensuring different components of the application work together as expected
+                    using Selenium build automation tool"
+                // Used for web browser-based integration testing
             }
         }
         stage('Code Analysis') {
             steps {
-                echo "Check the quality of the code"
+                echo "Initiating code analysis......."
+                echo "Using SonarQube tool checking the quality of the code"
+                // SonarQube detects bugs and vulnerabilities
+                sleep 10
+                echo "SonarQube: industry standards are met"
             }
         }
         stage('Security Scan') {
