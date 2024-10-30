@@ -17,36 +17,44 @@ pipeline {
                 echo "Integration test: Ensuring different components of the application work together as expected using Selenium build automation tool"
                 // Used for web browser-based integration testing
             }
+            
         }
         stage('Code Analysis') {
             steps {
                 echo "Initiating code analysis......."
                 echo "Using SonarQube tool checking the quality of the code"
-                // SonarQube detects bugs and vulnerabilities
-                sleep 10
+                // SonarQube detects bugs
                 echo "SonarQube: industry standards are met"
             }
         }
         stage('Security Scan') {
             steps {
-                echo "Deploy the application to a testing environment " +
-                "specified by the environment variable"
+                echo "Performing security scan using OSWASP dependency check......."
+                // The OSWASP dependency check detects vulnerabilities
+                echo "OSWASP: no vulnerabilities found"
             }
         }
         stage('Deploy to Staging') {
             steps {
-                echo "Approval started and completed"
+                echo "Deploying to a staging server......."
+                echo "Server selected: AWS EC2 instance"
                 sleep 10
+                echo "Deployment to staging server successful"
             }
         }
         stage('Integration Tests on Staging') {
             steps {
-                echo "PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
+                echo "Running integration tests on AWS EC2 instance staging environment......."
+                sleep 10
+                echo "Deployment of Integration Tests to staging server successful"
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo "PRODUCTION_ENVIRONMENT, deploy to Production started and completed"
+                echo "Deploying to the production server......."
+                echo "Server selected: AWS EC2 instance"
+                sleep 10
+                echo "Deployment to production server successful"
             }
         }
     }
